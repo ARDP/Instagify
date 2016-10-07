@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -31,7 +32,7 @@ public class clsUser
 
     }
 
-    public bool mtInsertUser(int IdUser , string Name, string LastName, int? UserType, string Email, string UserName, string Friends, string PassW, bool Active )
+    public bool mtInsertUser(int IdUser , string Name, string LastName, int? UserType, string Email, string UserName, string Friends, string PassW, bool Active,string ProfilePic)
     {
         var resp = false;
         try
@@ -45,8 +46,9 @@ public class clsUser
             objDatos.AddParameter("@UserName", UserName);
             objDatos.AddParameter("@Active", Active);
             objDatos.AddParameter("@PassW", PassW);
+            objDatos.AddParameter("@ProfilePic", ProfilePic);
 
-            resp=   objDatos.ExecuteNonQuery("spcUsersPut", System.Data.CommandType.StoredProcedure);
+            resp =   objDatos.ExecuteNonQuery("spcUsersPut", System.Data.CommandType.StoredProcedure);
 
             return resp;
         }
@@ -56,6 +58,27 @@ public class clsUser
             throw;
         }
     }
+
+    public  DataTable mttUserGet(string UserName, string PassW)
+    {
+        DataTable dtReturn = new DataTable();
+        try
+        {
+            objDatos.ClearParameter();
+            objDatos.AddParameter("@UserName", UserName);
+            objDatos.AddParameter("@PassW", PassW);
+
+            dtReturn = objDatos.getDataTable("spcUserGet", CommandType.StoredProcedure);
+
+            return dtReturn;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    }
+
 
     public void mtDispose()
     {

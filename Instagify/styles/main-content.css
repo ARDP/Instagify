@@ -1,4 +1,8 @@
-﻿html, body, div, span, applet, object, iframe,
+﻿@font-face {
+    font-family: AlwaysInMyHeart;
+    src: url('../fonts/Always In My Heart.ttf');
+}
+/*html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p,
 blockquote, pre, a, abbr, acronym, address, big,
 cite, code, del, dfn, em, font, img,
@@ -55,14 +59,19 @@ hr {
      color: #000;
      background-color: #000;
      height: 1px
-}
+}*/
 
-
+/*
 body{
   background-color: #CEF6EC;
 }
-
-
+    */
+body{
+  padding:0;
+  margin:0;
+  /*background-color:#EBF6F9  ;*/
+  font-family:Verdana,Tahoma;
+}
 
 .menu-links  li{
     display:inline;
@@ -71,7 +80,15 @@ body{
 
 .square {
     display:inline;
-    padding-right:100px;     
+ 
+    
+}
+.barraItem{
+    /*height:15px;
+    width:100px;*/
+    height:100%;
+    width:5%;
+    float:left;
     
 }
 .yellow {
@@ -84,6 +101,9 @@ background-color:orange;
 .red{
     background-color:red;
 }
+.pink{
+    background-color:#FF466B;
+}
 
 .violet {
 background-color: #9622A1;
@@ -91,9 +111,146 @@ background-color: #9622A1;
 .purple {
     background-color:mediumpurple
 }
-.darkblue{
-    background-color: blue  ;
+.darkBlue{
+    background-color: #043381  ;
 }
-.skyblue {
-    background-color:cornflowerblue;
+.skyBlue {
+    background-color:#00A6F3;
+}
+#m_barra{
+    /*background-color:#FF466B;*/
+     height:15px;
+}
+
+/*CLOCK CSS*/
+#timer {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  color: #999;
+  letter-spacing: -1px;
+}
+#timer span {
+  font-size: 60px;
+  color: #333;
+  margin: 0 3px 0 15px;
+}
+#timer span:first-child {
+  margin-left: 0;
+}
+
+.AllwaysInMyHeart{
+    font-family:AlwaysInMyHeart;
+}
+.title {
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+    /*border: 1px solid grey;*/
+    font-family: AlwaysInMyHeart;
+    text-align:center;
+     word-wrap: break-word; 
+     margin-right:-5px;
+     margin-left:-5px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.titleCustom {
+    background-color: #f8f8f8;
+    /*border-color: #e7e7e7;*/
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+         margin-right:-5px;
+     margin-left:-5px;
+  margin-bottom:-10px;
+    /*border: 1px solid grey;*/
+    /*font-family: AlwaysInMyHeart;*/
+    z-index:1;
+    position:relative;
+    
+     
+}
+.title-content{
+ background-color:white;
+padding:20px;
+ word-wrap: break-word; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  z-index:-1;
+  /*position:relative;*/
+}
+
+h1, h2,h3,h4,h5{
+    margin:0;
+    padding:0;
+}
+
+
+@media (min-width: 768px) {
+    .container-small {
+        width: 400px;
+    }
+    .container-large {
+        width: 970px;
+    }
+}
+@media (min-width: 992px) {
+    .container-small {
+        width: 400px;
+    }
+    .container-large {
+        width: 1170px;
+    }
+}
+@media (min-width: 1200px) {
+    .container-small {
+        width: 600px;
+    }
+    .container-large {
+        width: 1500px;
+    }
+}
+
+
+
+.negrita{
+  font-weight:bold;
+}
+
+.separarAbajo{
+    padding-bottom:10px;
+}
+.separarArriba{
+    margin-top:10px;
+}
+
+#m_imgPhoto{
+    height:100%;
+    width:100%;
+}
+
+.inputCustom{
+  display:block;
+  width:300px;
+  margin:20px auto;
+  padding:15px;
+  background:rgba(0,0,0,0.06);
+  color:#000;
+  border:0;
+}
+
+.inputButton{
+  display:block;
+  width:300px;
+  margin:20px auto;
+  padding:15px;
+  /*background:rgba(0,0,0,0.2);*/
+  color:#FFF;
+  border:0;
+}
+
+.customLinks{
+    letter-spacing:1px;font-weight:bold
+}
+
+
+#m_lblSubTitle{
+    font-size:14px;
 }

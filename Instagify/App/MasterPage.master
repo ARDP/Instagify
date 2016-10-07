@@ -1,26 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Instagify_App_MasterPage" %>
 
-<%--<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder id="head" runat="server">
-    </asp:ContentPlaceHolder>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
-    </form>
-</body>
-</html>
---%>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,91 +9,154 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>Static Top Navbar Example for Bootstrap</title>
-  
+    
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderHeader" runat="server"></asp:ContentPlaceHolder>
 </head>
 
+
 <body>
+    <form runat="server">
+        <!-- Static navbar -->
+        <nav class="navbar navbar-default navbar-static-top">
 
-    <!-- Static navbar -->
-  
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Instagify</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                    </ul>
 
 
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="m_liAdmin" runat="server"><a href="../App/Admin.aspx?">Admin</a></li>
+                        <li><a class="customLinks" href="../App/Index.aspx?">INICIO</a></li>
+                        <li id="m_liNotificaciones" runat="server" visible="false"><a class="customLinks" href="#">NOTIFICACIONES <span class="sr-only">(current)</span></a></li>
+                        <li><a class="customLinks" href="#">GANADORES</a></li>
+                        <li id="m_liIn" runat="server"><a class="customLinks" href="../App/Login.aspx?">ENTRAR</a></li>
+                        <%-- <li id="m_liAdmin" runat="server" visible="false"><a href="../App/SignUp.aspx?">Admin</a></li>--%>
+                        <li id="m_liUser" class="dpdwn">
 
-    <nav class="navbar navbar-default navbar-static-top">
-      
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Instagify</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <%-- <li class="active"><a href="#">Home</a></li>--%>
-                    <%--    <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>--%>
-                    <%--    <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>--%>
-                    <%--<ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>--%>
-                    <%-- </li>--%>
-                </ul>
-                  
-                        
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../App/Index.aspx?">Inicio</a></li>
-                    <li><a href="#">Notificaciones <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Ganadores</a></li>
-                    <li><a href="../App/SignUp.aspx?">Registrarse</a></li>
-                </ul>
-                            
+                            <div class="popover-markup">
+                                <%--<a href="#" class="trigger btn btn-default">Popover link</a> --%>
+                                <a class="navbar-text trigger ">
+                                    <label id="m_lblName" runat="server"></label>
+                                    <label id="m_lblLastName" runat="server"></label>
+                                </a>
+                                <%--  <div class="head hide">Lorem Ipsum</div>--%>
+                                <%--<div class="content hide">--%>
+                                <%--  <asp:LinkButton ID="m_btnCloseSession" CssClass="" runat="server" OnClick="closeSession_Click" Text="Cerrar Sesion" Visible="true" />--%>
+                                <%--</div>--%>
                             </div>
-            <!--/.nav-collapse -->
-        </div>
-                 
-    </nav>
+                        </li>
+                        <li>
+                            <asp:LinkButton ID="m_btnCloseSession" CssClass="" runat="server" OnClick="closeSession_Click" Text="Cerrar Sesion" Visible="true" />
+                        </li>
+                    </ul>
 
 
-    <div class="container">
+
+
+                    <%--                        <asp:TextBox runat="server" ID="m_txtUserName" >
+
+                        </asp:TextBox >
+                         <asp:TextBox runat="server" ID="m_txtPassWord" >
+
+                        </asp:TextBox>
+                        <asp:Button runat="server" Text="Iniciar Sesión"  OnClick="Login_Click" AutoPostBack="true" />--%>
+                </div>
+                <!--/.nav-collapse -->
+
+            </div>
+            <div id="m_barra" runat="server" class="row">
+                <div class=" barraItem orange">&nbsp</div>
+                 <div class="barraItem pink">&nbsp</div>
+                <div class="barraItem violet">&nbsp</div>
+                <div class="barraItem purple">&nbsp</div>
+               
+                <div class="barraItem darkBlue">&nbsp</div>
+                <div class="barraItem skyBlue">&nbsp</div>
+
+                <div class="barraItem orange">&nbsp</div>
+                   <div class="barraItem pink">&nbsp</div>
+                <div class="barraItem violet">&nbsp</div>
+                <div class="barraItem purple">&nbsp</div>
+                <div class="barraItem yellow">&nbsp</div>
+                <div class="barraItem orange">&nbsp</div>
+                 <div class="barraItem pink">&nbsp</div>
+                <div class="barraItem violet">&nbsp</div>
+                   <div class="barraItem purple">&nbsp</div>
+               
+                <div class="barraItem darkBlue">&nbsp</div>
+                <div class="barraItem skyBlue">&nbsp</div>
+                  <div class=" barraItem orange">&nbsp</div>
+                 <div class="barraItem pink">&nbsp</div>
+                 <div class="barraItem violet">&nbsp</div>
+                &nbsp
+            </div>
+        </nav>
+
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <%-- <div class="container">--%>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
-    </div>
+
+    </form>
+    <%-- </div>--%>
     <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-
-
-    <link rel="icon" href="../../favicon.ico">
-    <script src="../../packages/jQuery.3.1.0/Content/Scripts/jquery-3.1.0.min.js"></script>
+<%--    <link rel="stylesheet" href="../../packages/bootstrap.3.3.7/content/Content/bootstrap-theme.css" type="text/css" />
     <link href="../../packages/bootstrap.3.3.7/content/Content/bootstrap-theme.css" rel="stylesheet" type="text/css" />
     <link href="../Content/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../packages/bootstrap.3.3.7/content/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="../../packages/bootstrap.3.3.7/content/Scripts/bootstrap.min.js"></script>
-    <script src="../../packages/bootstrap.3.3.7/content/Scripts/bootstrap.js"></script>
-    <link href="../../packages/bootstrap.3.3.7/content/Content/bootstrap-theme.css" />
-    <script src="../scripts/bootstrap.min.js"></script>
-    <script src="../scripts/jquery-3.1.0.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../scripts/js/custom/MasterPage.js" ></script>
+    <link href="../../packages/bootstrap.3.3.7/content/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />--%>
+    <link href="../styles/login.css" rel="stylesheet" type="text/css" />
 
-    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-    </asp:ContentPlaceHolder>
+    <link rel="icon" href="../../favicon.ico">
+
+
+<%--    <script src="../../packages/jQuery.3.1.0/Content/Scripts/jquery-3.1.0.min.js"></script>
+
+    <script src="../../packages/bootstrap.3.3.7/content/Scripts/bootstrap.min.js"></script>
+    <script src="../../packages/bootstrap.3.3.7/content/Scripts/bootstrap.js"></script>--%>
+
+  <%--  <script src="../scripts/bootstrap.min.js"></script>--%>
+  <%--  <script src="../scripts/jquery-3.1.0.min.js"></script>--%>
+
+<%--    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>--%>
+    <script src="../scripts/js/custom/MasterPage.js"></script>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+    <div class="row footer">
+        <img src="../imagenes/camera.svg" alt="camera" class="pic">
+        <img src="../imagenes/ball.svg" alt="ball" class="moveUp pic">
+        <img src="../imagenes/star.svg" alt="star" class="pic">
+        <img src="../imagenes/globe.svg" alt="globe" class="moveUp pic">
+        <img src="../imagenes/rocket.svg" alt="rocket" class="pic">
+        <img src="../imagenes/sun.svg" alt="sun" class="moveUp pic">
+        <img src="../imagenes/worldmap.svg" alt="worldmap" class="pic">
+        <img src="../imagenes/apple.svg" alt="apple" class="moveUp pic">
+        <img src="../imagenes/heart.svg" alt="heart" class="pic">
+        <img src="../imagenes/glasses.svg" alt="glasses" class="moveUp pic">
+        <img src="../imagenes/bigHeart.svg" alt="bigHeart" class="pic">
+        <img src="../imagenes/ship.svg" alt="ship" class="moveUp pic">
+        <img src="../imagenes/paperPlane.svg" alt="paperPlane" class="pic">
+        <img src="../imagenes/trophy.svg" alt="trophy" class="moveUp pic">
+    </div>
+
+      
 </body>
 </html>
